@@ -1,0 +1,132 @@
+/* so this is one way to combine selectors */
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  font-family: sans-serif;
+  color: #444;
+}
+
+h1,
+h2,
+h3 {
+  color: #1098ad;
+}
+
+h1 {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-style: italic;
+  color: #1098ad;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+li {
+  font-size: 20px;
+}
+
+/***** styling the html elements in the following two way i.e. by descendant selectors, is not a good idea because they are encoding the html structure into the css file *****/
+/* this is called the descendant selector and this is another way to select html elements */
+/* footer p {
+  font-size: 16px;
+}
+
+this is called nested descendant selector, self explanatory, it selects the p element inside the header inside the article, i.e. the p that starts with 'Posted by Laura Jones on...' */
+/* article header p {
+  font-style: italic;
+} */
+
+/* this is called id selector and only one html element can have a specific id selector, basically naming the element uniquely, and almost never used */
+#author {
+  font-style: italic;
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 16px;
+}
+
+/* this is called class selector, and multiple html elements can have the same class selector(s), basically an adjective for the html element(s), and almost used everytime */
+.related-author {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.related-posts {
+  list-style: none;
+}
+
+aside {
+  border-top: #1098ad 5px solid;
+  border-bottom: #1098ad 5px solid;
+  background-color: #f7f7f7;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+}
+
+/* this is called pseudo-class and we can style the first elements like this */
+li:first-child {
+  font-weight: bold;
+}
+
+/* and last childs like this */
+li:last-child {
+  font-style: italic;
+}
+
+li:nth-child(2) {
+  /* and nth childs like this, or even and odd elements with basically writing even or odd instead of 2 */
+}
+
+/* this doesn't work as expected, one might expect this to select the first child of p of the article element but actually article's first child is header
+article p:first-child {
+  color: red;
+} */
+
+/* but the following would work as expected since the article's last child is a p element
+article p:last-child {
+  color: red;
+} */
+
+/* styling links is also done with pseudo-classes */
+a:link {
+  color: #1098ad;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1098ad;
+}
+
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline orangered;
+}
+
+a:active {
+  background-color: black;
+  font-style: italic;
+}
