@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* not all of the styling options get inherited like border-top in the following, mostly text-related ones */
@@ -13,26 +14,16 @@ body {
 }
 
 .container {
-  width: 700px;
+  width: 1200px;
   margin: 0 auto;
 }
 
 .main-header {
   background-color: #f7f7f7;
-  /* padding: 20px;
-  padding-left: 40px;
-  padding-right: 40px; */
   padding: 20px 40px; /* first is vertical second is horizontal */
   margin-bottom: 60px;
-  height: 80px;
+  /* height: 80px; */
 }
-
-/* no longer needed... */
-/* so this is one way to combine selectors */
-/* h1, h2, h3, h4, p, li {
-  font-family: sans-serif;
-  color: #444;
-} */
 
 h1,
 h2,
@@ -44,7 +35,6 @@ h1 {
   font-size: 26px;
   text-transform: uppercase;
   font-style: italic;
-  color: #1098ad;
 }
 
 h2 {
@@ -63,28 +53,28 @@ h4 {
   font-size: 20px;
   text-transform: uppercase;
   text-align: center;
+  margin-bottom: 30px;
 }
 
-nav {
-  font-size: 18px;
+p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: px;
 }
 
 article {
   margin-bottom: 60px;
 }
 
-p {
-  font-size: 22px;
-  line-height: 1.5;
-  margin-bottom: 50px;
-}
-
 aside {
   border-top: #1098ad 5px solid;
   border-bottom: #1098ad 5px solid;
   background-color: #f7f7f7;
-  padding: 50px 0;
-  width: 500px;
+  padding: 50px 40px;
+}
+
+nav {
+  font-size: 18px;
 }
 
 ul,
@@ -101,17 +91,6 @@ li {
 li:last-child {
   margin-bottom: 0;
 }
-
-/***** styling the html elements in the following two way i.e. by descendant selectors, is not a good idea because they are encoding the html structure into the css file *****/
-/* this is called the descendant selector and this is another way to select html elements */
-/* footer p {
-  font-size: 16px;
-}
-
-this is called nested descendant selector, self explanatory, it selects the p element inside the header inside the article, i.e. the p that starts with 'Posted by Laura Jones on...' */
-/* article header p {
-  font-style: italic;
-} */
 
 /* this is called id selector and only one html element can have a specific id selector, basically naming the element uniquely, and almost never used */
 #author {
@@ -131,6 +110,7 @@ this is called nested descendant selector, self explanatory, it selects the p el
 
 .related-posts {
   list-style: none;
+  margin: 0;
 }
 
 .post-header {
@@ -157,7 +137,6 @@ button {
   font-size: 22px;
   padding: 20px;
   cursor: pointer;
-
   position: absolute;
   bottom: 50px;
   right: 50px;
@@ -167,11 +146,6 @@ button {
 h1::first-letter {
   font-style: normal;
   margin-right: 5px;
-}
-
-/* + is the adjacent sibling selector here, which means it will only select the <p> elements that are sibling to the <h3> elements, and then the :: which is, again, pseudo-element selector will select the first line */
-h3 + p::first-line {
-  /* color: red; */
 }
 
 h2::after {
@@ -197,20 +171,6 @@ li:last-child {
   font-style: italic;
 }
 
-li:nth-child(2) {
-  /* and nth childs like this, or even and odd elements with basically writing even or odd instead of 2 */
-}
-
-/* this doesn't work as expected, one might expect this to select the first child of p of the article element but actually article's first child is header
-article p:first-child {
-  color: red;
-} */
-
-/* but the following would work as expected since the article's last child is a p element
-article p:last-child {
-  color: red;
-} */
-
 /* styling links is also done with pseudo-classes */
 a:link {
   color: #1098ad;
@@ -230,4 +190,47 @@ a:hover {
 a:active {
   background-color: black;
   font-style: italic;
+}
+
+.author-img {
+  float: left;
+  margin-bottom: 20px;
+}
+
+.author {
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+h1 {
+  float: left;
+}
+
+nav {
+  float: right;
+}
+
+/* .clear {
+  clear: both;
+} */
+
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+article {
+  width: 825px;
+  float: left;
+}
+
+aside {
+  width: 300px;
+  float: right;
+}
+
+footer {
+  clear: both;
 }

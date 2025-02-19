@@ -2,11 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FLEXBOX</title>
+    <title>Flexbox</title>
+    <style>
+      .el--1 {
+        background-color: blueviolet;
+      }
+      .el--2 {
+        background-color: orangered;
+      }
+      .el--3 {
+        background-color: green;
+        height: 150px;
+      }
+      .el--4 {
+        background-color: goldenrod;
+      }
+      .el--5 {
+        background-color: palevioletred;
+      }
+      .el--6 {
+        background-color: steelblue;
+      }
+      .el--7 {
+        background-color: yellow;
+      }
+      .el--8 {
+        background-color: crimson;
+      }
+
+      .container {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: #ddd;
+        font-size: 32px;
+        margin: 40px;
+
+        /* FLEXBOX */
+        /* makes the flexbox appearance */
+        display: flex;
+        /* makes the flexbox elements aligned through the vertical center, i.e. gives enough space to the above and below of the element, also if we use flex-start or flex-end instead of center, we can align them through the vertical beginning or end, and stretch makes all the elements' heights as the longest element's height */
+        align-items: center;
+        /* gives equal spacing at the horizontal beggining and the end of the elements, and if we use space-between, they all start at the very beginning and end at the very end but they have equal spacing in between */
+        justify-content: flex-start;
+        gap: 30px;
+      }
+
+      .el {
+        /* margin-right: 30px; */
+      }
+
+      .el--1 {
+        align-self: flex-start;
+        /* order: 2; */
+      }
+
+      .el--5 {
+        align-self: stretch;
+        /* unlike el--6, this one will go to the end */
+        order: 1;
+      }
+
+      .el--6 {
+        /* all of the elements order is 0 so if we -1 to it, it will come first */
+        order: -1;
+      }
+    </style>
   </head>
   <body>
-    <h2>FLEXBOX</h2>
-    <a href="index.html">Back to home</a>
+    <div class="container">
+      <div class="el el--1">HTML</div>
+      <div class="el el--2">and</div>
+      <div class="el el--3">CSS</div>
+      <div class="el el--4">are</div>
+      <div class="el el--5">amazing</div>
+      <div class="el el--6">languages</div>
+      <!-- <div class="el el--7">to</div>
+      <div class="el el--8">learn</div> -->
+    </div>
   </body>
 </html>
