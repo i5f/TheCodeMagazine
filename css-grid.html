@@ -14,7 +14,8 @@
       }
       .el--3 {
         background-color: green;
-        height: 150px;
+        /* since this element has the 150 pixels in height, the entire row is 150 pixels */
+        /* height: 150px; */
       }
       .el--4 {
         background-color: goldenrod;
@@ -36,13 +37,30 @@
         /* STARTER */
         font-family: sans-serif;
         background-color: #ddd;
-        font-size: 40px;
+        font-size: 30px;
         margin: 40px;
 
         /* CSS GRID */
+        display: grid;
+        /* we can define as much as we want in the following line and it makes the columns with the specified sizes */
+        /* just like the flexbox, the elements stretch across the entire cells */
+        /* grid-template-columns: 200px 200px 1fr 1fr; */
+        /* since the third element is 150px in height, it doesn't stretch more vertically */
+        /* grid-template-rows: 300px 200px; */
+        /* always use the gap property with the grid elements never the margin since it won't work, grid-gap is the same */
+        /* gap: 10px; */
+        /* grid-template-columns: 2fr 1fr 1fr auto; */
+        grid-template-columns: repeat(4, 1fr);
+        /* if we have more than 2 rows, then they are called implicit rows since we didn't specify the line height, and the ones we did is explicit rows */
+        /* if we don't specify the height of a row then they get the automatic height by the tallest one i.e. the number 6 which becomes two lines first if we shrink the size of the website */
+        grid-template-rows: 1fr 1fr;
+        height: 500px;
+        column-gap: 30px;
+        row-gap: 60px;
       }
 
       .container--2 {
+        display: none;
         /* STARTER */
         font-family: sans-serif;
         background-color: black;

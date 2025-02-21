@@ -46,11 +46,21 @@
         align-items: center;
         /* gives equal spacing at the horizontal beggining and the end of the elements, and if we use space-between, they all start at the very beginning and end at the very end but they have equal spacing in between */
         justify-content: flex-start;
-        gap: 30px;
+        /* better than manually doing since it's less verbose and no need to specifically remove the last element's margin at the end */
+        /* gap: 30px; */
       }
 
       .el {
-        /* margin-right: 30px; */
+        /* DEFAULTS:
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto; */
+        /* flex-basis: 200px; /* although the word 'languages' is wider than 100px, it's in its original width, so this is more like a recommendation to the browser and not so rigid. If we make it 200px wide then we can see that they don't become 200px wide, which is because the flex-box is allowed to shrink elements to fit the container, thanks to flex-shrink property since it shrinks the elements if they are too wide */
+        /* flex-shrink: 0; essentially flex-shrink determines whether flex-box is allowed to shrink the elements if they're too wide */
+        /* flex-grow: 1; opposite of the flex-shrink */
+
+        /* do not use the 3 properties above individually, instead use the following */
+        flex: 0 0 200px; /* first one flex-grow, second is flex-shrink, third one is flex-basis */
       }
 
       .el--1 {
